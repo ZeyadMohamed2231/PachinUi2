@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ForgetPassFragment"
+    android:background="@drawable/image">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="85dp"
+        android:src="@drawable/logo"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_phone_fp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Phone Number"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_password_fp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="New Password"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_password_conf_fp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Password Confirmation"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@color/orange_dark"
+            android:layout_marginTop="20dp"
+            android:id="@+id/bt_changepass"
+            android:text="Change Password"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="90sp"
+            android:layout_marginEnd="90sp"
+            android:background="@drawable/et_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

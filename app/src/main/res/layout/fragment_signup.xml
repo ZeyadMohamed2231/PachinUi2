@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SignupFragment"
+    android:background="@drawable/image">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="85dp"
+        android:src="@drawable/logo"/>
+
+        <EditText
+            android:layout_marginTop="90dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_fname_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="First Name"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_lname_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Last Name"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_phone_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Phone Number"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_password_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textColor="@color/white"
+            android:id="@+id/et_password_conf_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_style"
+            android:hint="Password Confirmation"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:gravity="center"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="20dp"
+            app:backgroundTint="@color/orange_dark"
+            android:id="@+id/bt_sign_up"
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="90sp"
+            android:layout_marginEnd="90sp"
+            android:background="@drawable/et_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
