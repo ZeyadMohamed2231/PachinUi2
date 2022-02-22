@@ -14,12 +14,23 @@
 
 
 
-
     <ImageView
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="85dp"
         android:src="@drawable/logo"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_advs"
+            app:layout_constraintTop_toBottomOf="@+id/iv_movie_main"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/item_adv"
+            android:orientation="horizontal"
+            app:spanCount="1"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            />
 
 
         
@@ -113,7 +124,7 @@
                  <TextView
                      android:id="@+id/tv_exps_no"
                      android:textColor="@color/orange"
-                     android:text="01159699441"
+                     android:text="10000"
                      android:textStyle="italic"
                      android:textSize="20dp"
                      android:padding="10dp"
@@ -131,7 +142,8 @@
      </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_sign_in"
+            android:id="@+id/bt_recharge"
+
             android:text="Recharge EXPs"
             android:textSize="20sp"
             android:textAllCaps="false"
