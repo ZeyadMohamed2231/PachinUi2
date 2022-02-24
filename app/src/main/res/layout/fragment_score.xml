@@ -32,14 +32,71 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             />
 
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
 
+                android:textColor="@color/orange"
+                android:textSize="20dp"
+                android:text="@string/name"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_profile_name"
+                android:textColor="@color/orange"
+                android:text="Zeyad Elshaer"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:textColor="@color/orange"
+                android:textSize="20dp"
+                android:text="@string/phone_number2"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_phone_number_score"
+                android:textColor="@color/orange"
+                android:text="01159699441"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
         
      <com.google.android.material.card.MaterialCardView
-         android:layout_width="match_parent"
+         android:layout_marginTop="50dp"
+         android:layout_gravity="center"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:elevation="2dp"
-         android:layout_margin="10dp"
-         app:cardCornerRadius="15dp"
+
+         app:cardCornerRadius="10dp"
          android:orientation="vertical"
          >
 
@@ -47,92 +104,69 @@
 
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="vertical">
+             android:orientation="vertical"
+             >
+
 
              <LinearLayout
-                 android:gravity="center"
+                 android:layout_margin="5dp"
                  android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
+                 android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_balance_wallet"
+                    />
                  <TextView
-                     android:textColor="@color/orange"
-                     android:textSize="20dp"
-                     android:text="Profile Name:"
+                     android:id="@+id/tv_balance"
+                     android:textColor="@color/black"
+                     android:text="@string/balance"
+                     android:layout_marginLeft="10dp"
+                     android:textSize="18dp"
                      android:textStyle="italic"
-                     android:gravity="start"
-                     android:padding="10dp"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     />
-                 <TextView
-                     android:id="@+id/tv_profile_name"
-                     android:textColor="@color/orange"
-                     android:text="Zeyad Elshaer"
-                     android:textStyle="italic"
-                     android:textSize="20dp"
-                     android:padding="10dp"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     />
-
-
-             </LinearLayout>
-
-             <LinearLayout
-                 android:gravity="center"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
-                 <TextView
-                     android:textColor="@color/orange"
-                     android:textSize="20dp"
-                     android:text="Phone Number:"
-                     android:textStyle="italic"
-                     android:gravity="start"
-                     android:padding="10dp"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     />
-                 <TextView
-                     android:id="@+id/tv_phone_number_score"
-                     android:textColor="@color/orange"
-                     android:text="01159699441"
-                     android:textStyle="italic"
-                     android:textSize="20dp"
-                     android:padding="10dp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      />
 
              </LinearLayout>
 
+
+
              <LinearLayout
-                 android:gravity="center"
+                 android:layout_margin="5dp"
+                 android:layout_marginTop="10dp"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:orientation="horizontal">
+
                  <TextView
-                     android:textColor="@color/orange"
-                     android:textSize="20dp"
-                     android:text="EXPs owned:"
+                     android:id="@+id/tv_points_number"
+                     android:textColor="@color/black"
+                     android:text="500000"
+                     android:layout_marginLeft="10dp"
+                     android:textSize="18dp"
                      android:textStyle="italic"
-                     android:gravity="start"
-                     android:padding="10dp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      />
                  <TextView
-                     android:id="@+id/tv_exps_no"
-                     android:textColor="@color/orange"
-                     android:text="10000"
+                     android:id="@+id/tv_points"
+                     android:textColor="@color/black"
+                     android:text="@string/points"
+                     android:layout_marginRight="5dp"
+                     android:layout_marginLeft="5dp"
+                     android:textSize="18dp"
                      android:textStyle="italic"
-                     android:textSize="20dp"
-                     android:padding="10dp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      />
 
+
+
              </LinearLayout>
+
+
 
 
          </LinearLayout>

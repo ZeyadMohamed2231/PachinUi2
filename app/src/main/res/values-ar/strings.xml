@@ -28,5 +28,9 @@
     <string name="arabic">العربية</string>
     <string name="english">الانجليزية</string>
     <string name="signing_out">تسجيل خروج ؟</string>
+    <string name="name">الاسم :</string>
+    <string name="phone_number2">رقم التليفون :</string>
+    <string name="balance">الرصيد</string>
+    <string name="points">نقاط</string>
 
 </resources>

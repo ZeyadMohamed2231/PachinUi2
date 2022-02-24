@@ -28,4 +28,8 @@
     <string name="arabic">Arabic</string>
     <string name="english">English</string>
     <string name="signing_out">ٍSigning out?</string>
+    <string name="name">Name:</string>
+    <string name="phone_number2">Phone Number:</string>
+    <string name="balance">Balance</string>
+    <string name="points">Points</string>
 </resources>

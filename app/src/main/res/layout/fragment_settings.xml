@@ -39,7 +39,7 @@
 
             <Button
                 android:layout_weight="1"
-                android:id="@+id/bt_arabic"
+                android:id="@+id/bt_arabic_settings"
                 android:text="@string/arabic"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
@@ -52,7 +52,7 @@
                 />
             <Button
                 android:layout_weight="1"
-                android:id="@+id/bt_english"
+                android:id="@+id/bt_english_settings"
                 android:text="@string/english"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
