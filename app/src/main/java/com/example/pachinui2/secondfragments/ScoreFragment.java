@@ -52,14 +52,6 @@ public class ScoreFragment extends Fragment {
         recyclerView.setAdapter(socreAdapter);
 
 
-        Button button = view.findViewById(R.id.bt_recharge);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                showFragment(new ExpsFragment());
-            }
-        });
 
 
         return view;

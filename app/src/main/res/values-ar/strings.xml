@@ -20,4 +20,7 @@
     <string name="first_name">الاسم الأول</string>
     <string name="last_name">اسم العائلة</string>
     <string name="verification_code">شيفرة التأكيد</string>
+    <string name="recharge">تعبئة رصيد</string>
+    <string name="profile">حساب تعريفي</string>
+    <string name="settings">الإعدادات</string>
 </resources>

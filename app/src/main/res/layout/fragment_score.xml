@@ -141,19 +141,7 @@
 
      </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_recharge"
 
-            android:text="Recharge EXPs"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="50sp"
-            app:backgroundTint="@color/orange_dark"
-            android:background="@drawable/et_style"
-            android:layout_marginEnd="50sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 
 
