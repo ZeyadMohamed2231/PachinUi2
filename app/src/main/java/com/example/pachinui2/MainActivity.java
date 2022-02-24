@@ -3,6 +3,8 @@ package com.example.pachinui2;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         mTimer = new Timer();
         mTimer.schedule(mTimerTask, 3000);
 
+        }
 
 
-    }
 
     private void showFragment(Fragment fragment){
         getSupportFragmentManager()

@@ -1,8 +1,6 @@
 package com.example.pachinui2.fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,12 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
-import com.example.pachinui2.LocaleHelper;
-import com.example.pachinui2.MainActivity;
 import com.example.pachinui2.R;
-import com.example.pachinui2.SecondScreen;
 
 import java.util.Locale;
 

@@ -23,4 +23,10 @@
     <string name="recharge">تعبئة رصيد</string>
     <string name="profile">حساب تعريفي</string>
     <string name="settings">الإعدادات</string>
+    <string name="sign_out">خروج</string>
+    <string name="select_language">اختيار اللغة</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الانجليزية</string>
+    <string name="signing_out">تسجيل خروج ؟</string>
+
 </resources>
