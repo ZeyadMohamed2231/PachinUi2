@@ -21,7 +21,7 @@
         <TextView
             android:textColor="@color/white"
             android:textSize="25sp"
-            android:text="Welcome Back"
+            android:text="@string/welcome_back"
             android:textStyle="italic"
             android:gravity="center"
             android:layout_marginTop="100dp"
@@ -32,7 +32,7 @@
         <TextView
             android:textColor="@color/white"
             android:textSize="35sp"
-            android:text="Please Sign in"
+            android:text="@string/please_sign_in"
             android:textStyle="italic"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/et_style"
-            android:hint="Your Phone Number"
+            android:hint="@string/your_phone_number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:padding="10dp"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/et_style"
-            android:hint="Password"
+            android:hint="@string/password"
             android:textColorHint="@color/white"
             android:padding="10dp"
             android:gravity="center"
@@ -72,13 +72,13 @@
             android:layout_gravity="end"
             android:id="@+id/tv_fp"
             android:textColor="@color/white"
-            android:text="Forget Password ?"
+            android:text="@string/forget_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_sign_in"
-            android:text="Sign in"
+            android:text="@string/sign_in"
             android:textSize="20sp"
             android:textAllCaps="false"
             android:layout_marginStart="50sp"
@@ -91,7 +91,7 @@
         <TextView
             android:layout_marginTop="30dp"
             android:textSize="20sp"
-            android:text="Do not have account yet?"
+            android:text="@string/do_not_have_account_yet"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -100,12 +100,11 @@
             android:id="@+id/tv_signup"
             android:textSize="20sp"
             android:clickable="true"
-            android:text="Sign up"
+            android:text="@string/sign_up"
             android:textColor="@color/orange"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
 
 
 

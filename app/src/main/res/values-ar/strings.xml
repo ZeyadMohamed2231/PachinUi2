@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pachin</string>
+    <string name="sign_up">اشتراك</string>
+    <string name="enter_your_code_here">أدخل رمزك هنا</string>
+    <string name="the_code_used_only_once">استخدم الرمز مرة واحدة فقط</string>
+    <string name="ok">تمام</string>
+    <string name="phone_number">رقم التليفون</string>
+    <string name="new_password">كلمة مرور جديدة</string>
+    <string name="password_confirmation">تأكيد كلمة المرور</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="hello_blank_fragment">ss</string>
+    <string name="do_not_have_account_yet">ليس لديك حساب بعد؟</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="forget_password">نسيت كلمة المرور؟</string>
+    <string name="password">كلمة المرور</string>
+    <string name="your_phone_number">رقم تليفونك</string>
+    <string name="please_sign_in">الرجاء تسجيل الدخول</string>
+    <string name="welcome_back">مرحبا بعودتك</string>
+    <string name="first_name">الاسم الأول</string>
+    <string name="last_name">اسم العائلة</string>
+    <string name="verification_code">شيفرة التأكيد</string>
+</resources>

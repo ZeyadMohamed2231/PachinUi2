@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.pachinui2.fragments.LanguageFragment;
 import com.example.pachinui2.fragments.LoginFragment;
 import com.example.pachinui2.fragments.SignupFragment;
 import com.example.pachinui2.fragments.SplashFragment;
@@ -27,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                showFragment(new LoginFragment());
+                showFragment(new LanguageFragment());
             }
         };
         mTimer = new Timer();
         mTimer.schedule(mTimerTask, 3000);
+
+
+
     }
 
     private void showFragment(Fragment fragment){
