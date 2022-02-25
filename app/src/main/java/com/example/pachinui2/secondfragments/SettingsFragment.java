@@ -1,10 +1,12 @@
 package com.example.pachinui2.secondfragments;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +16,8 @@ import android.widget.Button;
 
 import com.example.pachinui2.R;
 import com.example.pachinui2.fragments.LoginFragment;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Locale;
 
@@ -48,10 +52,32 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        Button button_sign_out = view.findViewById(R.id.sign_out);
+        button_sign_out.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dialog("Title","Message");
 
+            }
+        });
 
 
         return view;
+    }
+
+    public void dialog(String title,String message){
+        new MaterialAlertDialogBuilder(getActivity())
+                .setTitle(title)
+                .setMessage(message)
+//                .setPositiveButton("OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                dialog.cancel();
+//                            }
+//                        }
+//                )
+                .show();
+
+
     }
 
     public void goToEnglish() {
