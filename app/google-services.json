@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "354167225245",
+    "firebase_url": "https://pachindemo-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pachindemo",
+    "storage_bucket": "pachindemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354167225245:android:89faa5b96c4a060f834d74",
+        "android_client_info": {
+          "package_name": "com.example.pachinui2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354167225245-drpkmmbeovhmnhfohdm315fo1ejkblo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pachinui2",
+            "certificate_hash": "b99e70608bdf1f37b765818aa0311dbe5be73742"
+          }
+        },
+        {
+          "client_id": "354167225245-8gal3hp36pp0k0c7h1am79kvs0ujp5ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy3gkeK5Jl50miIq09KQ3VeH6978Or0BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354167225245-8gal3hp36pp0k0c7h1am79kvs0ujp5ee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
