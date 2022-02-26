@@ -32,5 +32,6 @@
     <string name="phone_number2">رقم التليفون :</string>
     <string name="balance">الرصيد</string>
     <string name="points">نقاط</string>
+    <string name="close_app">اضغط مرتين لغلق التطبيق</string>
 
 </resources>

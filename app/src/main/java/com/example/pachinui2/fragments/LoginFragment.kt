@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
         button_signup.setOnClickListener {
             val intent = Intent(activity, SecondScreen::class.java)
             startActivity(intent)
+            activity?.finish()
         }
         return view
     }
@@ -41,6 +42,7 @@ class LoginFragment : Fragment() {
         parentFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
+            .addToBackStack(null)
             .commit()
     }
 }

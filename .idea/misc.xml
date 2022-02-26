@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Projects/New/PachinApp/app/src/main/res/layout/activity_second_screen.xml" value="0.20652173913043478" />
+        <entry key="..\:/Android Projects/New/PachinApp/app/src/main/res/layout/fragment_forget_pass.xml" value="0.14673913043478262" />
+        <entry key="..\:/Android Projects/New/PachinApp/app/src/main/res/menu/main_nav.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Projects/New/PachinUi2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1465" />
         <entry key="..\:/Android Projects/New/PachinUi2/app/src/main/res/drawable/drop.xml" value="0.1" />
         <entry key="..\:/Android Projects/New/PachinUi2/app/src/main/res/drawable/et_style.xml" value="0.111" />

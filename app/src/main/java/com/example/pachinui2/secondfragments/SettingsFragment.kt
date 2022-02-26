@@ -8,9 +8,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.example.pachinui2.secondfragments.SettingsFragment
 import com.example.pachinui2.secondfragments.ScoreFragment
 import android.app.Activity
+import android.content.Intent
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.pachinui2.SecondScreen
 import java.util.*
 
 class SettingsFragment : Fragment() {
@@ -50,20 +52,26 @@ class SettingsFragment : Fragment() {
 
     fun goToEnglish() {
         setLocale(activity, "en")
-        showFragment(ScoreFragment())
+        activity?.finish()
+        val intent = Intent(activity, SecondScreen::class.java)
+        startActivity(intent)
+
+
     }
 
     fun goToArabic() {
         setLocale(activity, "ar")
-        showFragment(ScoreFragment())
+        activity?.finish()
+        val intent = Intent(activity, SecondScreen::class.java)
+        startActivity(intent)
     }
 
-    private fun showFragment(fragment: Fragment) {
-        parentFragmentManager
-            .beginTransaction()
-            .replace(R.id.frame_layout2, fragment)
-            .commit()
-    }
+//    private fun showFragment(fragment: Fragment) {
+//        parentFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.frame_layout2, fragment)
+//            .commit()
+//    }
 
     companion object {
         fun setLocale(activity: Activity?, languageCode: String?) {

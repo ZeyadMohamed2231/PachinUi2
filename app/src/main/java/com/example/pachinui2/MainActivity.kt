@@ -14,7 +14,6 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 
-
 class MainActivity : AppCompatActivity() {
     private var mTimer: Timer? = null
     private var mTimerTask: TimerTask? = null

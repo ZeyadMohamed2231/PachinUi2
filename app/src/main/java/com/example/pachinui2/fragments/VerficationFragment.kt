@@ -40,10 +40,14 @@ class VerficationFragment : Fragment() {
         return view
     }
 
+
+
+
     private fun showFragment(fragment: Fragment) {
         parentFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
+
             .commit()
     }
 }

@@ -32,4 +32,5 @@
     <string name="phone_number2">Phone Number:</string>
     <string name="balance">Balance</string>
     <string name="points">Points</string>
+    <string name="close_app">Double click to close app</string>
 </resources>
