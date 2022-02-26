@@ -33,5 +33,13 @@
     <string name="balance">الرصيد</string>
     <string name="points">نقاط</string>
     <string name="close_app">اضغط مرتين لغلق التطبيق</string>
+    <string name="error">خطأ !</string>
+    <string name="enter_phone_number_correct">أدخل رقم هاتفك بشكل صحيح</string>
+    <string name="enter_password_correct">أدخل كلمة المرور الخاصة بك بشكل صحيح</string>
+    <string name="enter_first_name">أدخل اسمك الأول صحيحًا</string>
+    <string name="enter_last_name">أدخل اسمك العائلة صحيحًا</string>
+    <string name="enter_pass_conf">أدخل تأكيد كلمة المرور الخاصة بك بشكل صحيح</string>
+    <string name="enter_ver_code">أدخل رمز التحقق الخاص بك بشكل صحيح</string>
+    <string name="enter_code">أدخل رمزك بشكل الصحيح</string>
 
 </resources>

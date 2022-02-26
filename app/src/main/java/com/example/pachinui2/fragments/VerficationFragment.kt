@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.pachinui2.R
 import com.example.pachinui2.fragments.LoginFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
@@ -43,10 +44,15 @@ class VerficationFragment : Fragment() {
         }
 
         button.setOnClickListener {
+            var verCodeEt = view.findViewById<EditText>(R.id.et_code).text.toString()
+
+            if(verCodeEt.isEmpty()){
+                dialog(getString(R.string.error),getString(R.string.enter_ver_code))
+            }else{
             var insertedCode = textField.text.toString()
             val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
                 storedVerificationId.toString(), insertedCode)
-            signInWithPhoneAuthCredential(credential)
+            signInWithPhoneAuthCredential(credential)}
         }
         return view
     }
@@ -74,5 +80,11 @@ class VerficationFragment : Fragment() {
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
             .commit()
+    }
+    fun dialog(title: String?, message: String?) {
+        MaterialAlertDialogBuilder(requireActivity())
+            .setTitle(title)
+            .setMessage(message)
+            .show()
     }
 }

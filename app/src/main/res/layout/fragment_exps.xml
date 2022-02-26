@@ -30,6 +30,7 @@
             android:textColorHint="@color/white"
             android:padding="10dp"
             android:gravity="center"
+            android:inputType="number"
             />
         <TextView
             android:clickable="true"

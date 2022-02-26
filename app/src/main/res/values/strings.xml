@@ -33,4 +33,12 @@
     <string name="balance">Balance</string>
     <string name="points">Points</string>
     <string name="close_app">Double click to close app</string>
+    <string name="error">Error!</string>
+    <string name="enter_phone_number_correct">Enter Your Phone Number Correct</string>
+    <string name="enter_password_correct">Enter Your Password Correct</string>
+    <string name="enter_first_name">Enter Your First Name Correct</string>
+    <string name="enter_last_name">Enter Your Last Name Correct</string>
+    <string name="enter_pass_conf">Enter Your Password Confirmation Correct</string>
+    <string name="enter_ver_code">Enter Your Verification Code Correct</string>
+    <string name="enter_code">Enter Your Code Correct</string>
 </resources>

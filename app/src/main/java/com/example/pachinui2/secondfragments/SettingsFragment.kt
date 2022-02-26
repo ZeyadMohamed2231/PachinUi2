@@ -40,13 +40,7 @@ class SettingsFragment : Fragment() {
     fun dialog(title: String?, message: String?) {
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(title)
-            .setMessage(message) //                .setPositiveButton("OK",
-            //                        new DialogInterface.OnClickListener() {
-            //                            public void onClick(DialogInterface dialog, int whichButton) {
-            //                                dialog.cancel();
-            //                            }
-            //                        }
-            //                )
+            .setMessage(message)
             .show()
     }
 

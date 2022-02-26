@@ -49,6 +49,7 @@
             android:textColorHint="@color/white"
             android:padding="10dp"
             android:gravity="center"
+            android:inputType="number"
             />
         <EditText
             android:layout_marginStart="20sp"
@@ -62,6 +63,7 @@
             android:textColorHint="@color/white"
             android:padding="10dp"
             android:gravity="center"
+            android:inputType="textPassword"
             />
 
         <TextView
