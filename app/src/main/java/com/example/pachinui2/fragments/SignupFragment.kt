@@ -23,11 +23,12 @@ import java.util.concurrent.TimeUnit
 
 private lateinit var auth: FirebaseAuth
 // we will use this to match the sent otp from firebase
-private lateinit var storedVerificationId:String
+lateinit var storedVerificationId:String
 private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-private var mainActivity=MainActivity()
 var number : String =""
+private val bundle = Bundle()
+private val verficationFragment = VerficationFragment()
 
 class SignupFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +72,10 @@ class SignupFragment : Fragment() {
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
                 Log.d("GFG","onCodeSent: $verificationId")
-                showFragment(VerficationFragment())
+                storedVerificationId = verificationId
+                resendToken = token
+                bundle.putString("verificationId", storedVerificationId)
+                showFragment(VerficationFragment(), bundle)
             }
         }
 
@@ -93,11 +97,11 @@ class SignupFragment : Fragment() {
         Log.d("GFG" , "Auth started")
     }
 
-    private fun showFragment(fragment: Fragment) {
+    private fun showFragment(fragment: Fragment, bundle: Bundle) {
+        fragment.setArguments(bundle)
         parentFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
-
             .commit()
     }
 }

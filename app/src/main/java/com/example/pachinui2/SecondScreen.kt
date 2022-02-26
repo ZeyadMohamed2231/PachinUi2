@@ -1,20 +1,20 @@
 package com.example.pachinui2
 
-import android.app.PendingIntent.getActivity
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.example.pachinui2.R
-import com.example.pachinui2.fragments.LanguageFragment
-import com.example.pachinui2.secondfragments.ScoreFragment
-import com.google.android.material.navigation.NavigationBarView
 import com.example.pachinui2.secondfragments.ExpsFragment
+import com.example.pachinui2.secondfragments.ScoreFragment
 import com.example.pachinui2.secondfragments.SettingsFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
+
 
 class SecondScreen : AppCompatActivity() {
     private var mTimer: Timer? = null
@@ -42,7 +42,14 @@ class SecondScreen : AppCompatActivity() {
     var counter =0
     override fun onBackPressed() {
         counter++
-        constraintLayout?.let { Snackbar.make(it, getString(R.string.close_app), Snackbar.LENGTH_LONG).show() }
+        constraintLayout?.let {
+            val snack = Snackbar.make(it, getString(R.string.close_app), Snackbar.LENGTH_LONG)
+            val view: View = snack.getView()
+            val params = view.layoutParams as FrameLayout.LayoutParams
+            params.gravity = Gravity.TOP
+            view.layoutParams = params
+            snack.show()
+        }
         if (counter == 2){
            finish()
         }else{

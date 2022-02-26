@@ -12,10 +12,13 @@ import androidx.fragment.app.Fragment
 import com.example.pachinui2.R
 import com.example.pachinui2.fragments.LoginFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
 
 // create instance of firebase auth
+private lateinit var auth: FirebaseAuth
 
 
 class VerficationFragment : Fragment() {
@@ -33,13 +36,36 @@ class VerficationFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_verfication, container, false)
         val textField = view.findViewById<EditText>(R.id.et_code)
         val button = view.findViewById<Button>(R.id.ok_verf)
+        auth=FirebaseAuth.getInstance()
+        val bundle= this.getArguments()
+        if (bundle != null) {
+            val storedVerificationId = bundle.getString("verificationId")
+        }
+
         button.setOnClickListener {
-            Log.i("1",textField.text.toString())
-            showFragment(LoginFragment())
+            var insertedCode = textField.text.toString()
+            val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
+                storedVerificationId.toString(), insertedCode)
+            signInWithPhoneAuthCredential(credential)
         }
         return view
     }
 
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    showFragment(LoginFragment())
+                } else {
+                    Log.d("error","task failed")
+                    // Sign in failed, display a message and update the UI(can be for internet or something else)
+                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                        // The verification code entered was invalid
+                        Log.d("invalid","invalid code")
+                    }
+                }
+            }
+    }
 
 
 
@@ -47,7 +73,6 @@ class VerficationFragment : Fragment() {
         parentFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
-
             .commit()
     }
 }
