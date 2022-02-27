@@ -6,6 +6,17 @@ plugins {
 
 android {
     compileSdk 31
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0-alpha04"
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 
     defaultConfig {
         applicationId "com.example.pachinui2"
@@ -42,5 +53,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
+
+    implementation("androidx.compose.runtime:runtime:1.2.0-alpha04")
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-alpha04")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.2.0-alpha04")
+    implementation("androidx.compose.foundation:foundation:1.2.0-alpha04")
+    implementation("androidx.compose.material:material:1.2.0-alpha04")
 
 }
