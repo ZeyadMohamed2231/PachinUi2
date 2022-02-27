@@ -27,7 +27,8 @@ private lateinit var auth: FirebaseAuth
 lateinit var storedVerificationId:String
 private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-var number : String =""
+var number : String?=""
+var password : String?=""
 private val bundle = Bundle()
 private val verficationFragment = VerficationFragment()
 
@@ -45,17 +46,16 @@ class SignupFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup, container, false)
         val button = view.findViewById<Button>(R.id.bt_sign_up)
-        val phoneNumber = view.findViewById<EditText>(R.id.et_phone_signup)
+
         //Tamer
         auth=FirebaseAuth.getInstance()
         button.setOnClickListener {
-            number=phoneNumber.text.toString()
 
 
             val firstName = view.findViewById<EditText>(R.id.et_fname_signup).text.toString()
             val lastName = view.findViewById<EditText>(R.id.et_lname_signup).text.toString()
-            val phoneNumberSignUP = view.findViewById<EditText>(R.id.et_phone_signup).text.toString()
-            val passwordSignUP = view.findViewById<EditText>(R.id.et_password_signup).text.toString()
+            number= view.findViewById<EditText>(R.id.et_phone_signup).text.toString()
+            password = view.findViewById<EditText>(R.id.et_password_signup).text.toString()
             val pcSignUp = view.findViewById<EditText>(R.id.et_password_conf_signup).text.toString()
 
 
@@ -65,10 +65,10 @@ class SignupFragment : Fragment() {
             else if(lastName.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_last_name));
             }
-            else if(phoneNumberSignUP.isEmpty()){
+            else if(number!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_phone_number_correct));
             }
-            else if(passwordSignUP.isEmpty()){
+            else if(password!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_password_correct));
             }
             else if(pcSignUp.isEmpty()){
@@ -101,27 +101,30 @@ class SignupFragment : Fragment() {
                 storedVerificationId = verificationId
                 resendToken = token
                 bundle.putString("verificationId", storedVerificationId)
+                bundle.putString("password", password)
+                bundle.putString("phoneNumber", number)
                 showFragment(VerficationFragment(), bundle)
             }
         }
 
         return view
     }
-
     public fun sendVerificationCode(number: String) {
         val options = activity?.let {
             PhoneAuthOptions.newBuilder(auth)
                 .setPhoneNumber(number) // Phone number to verify
-                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                .setTimeout(120L, TimeUnit.SECONDS) // Timeout and unit
                 .setActivity(it) // Activity (for callback binding)
                 .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
                 .build()
         }
         if (options != null) {
             PhoneAuthProvider.verifyPhoneNumber(options)
+            auth.setLanguageCode("ar")
         }
         Log.d("GFG" , "Auth started")
     }
+
 
     private fun showFragment(fragment: Fragment, bundle: Bundle) {
         fragment.setArguments(bundle)

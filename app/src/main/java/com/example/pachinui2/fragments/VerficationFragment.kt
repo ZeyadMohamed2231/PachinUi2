@@ -18,10 +18,12 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
 
+
 // create instance of firebase auth
 private lateinit var auth: FirebaseAuth
-
-
+var userPassword:String?=""
+var phoneNumber:String?=""
+var verCodeEt:String?=""
 class VerficationFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +43,21 @@ class VerficationFragment : Fragment() {
         val bundle= this.getArguments()
         if (bundle != null) {
             val storedVerificationId = bundle.getString("verificationId")
+            userPassword= bundle.getString("password")
+            phoneNumber= bundle.getString("phoneNumber")
         }
 
         button.setOnClickListener {
-            var verCodeEt = view.findViewById<EditText>(R.id.et_code).text.toString()
+            verCodeEt = view.findViewById<EditText>(R.id.et_code).text.toString()
 
-            if(verCodeEt.isEmpty()){
+            if(verCodeEt!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_ver_code))
             }else{
-            var insertedCode = textField.text.toString()
+
+
             val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
-                storedVerificationId.toString(), insertedCode)
+                storedVerificationId.toString(), verCodeEt!!
+            )
             signInWithPhoneAuthCredential(credential)}
         }
         return view
@@ -72,6 +78,24 @@ class VerficationFragment : Fragment() {
                 }
             }
     }
+
+    private fun signUpEmail(auth: FirebaseAuth,userPhone:String?,userPassword:String?) {
+
+        if (userPhone != null && userPassword != null) {
+            auth.createUserWithEmailAndPassword(userPhone, userPassword)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        Log.d("Email","created account successfully !")
+                        showFragment(LoginFragment())
+                    } else {
+                        Log.d("Email","failed to create email, something went wrong(probably internet)")
+                    }
+                }
+        }else{
+            Log.d("alert","display unknown error")
+        }
+    }
+
 
 
 
