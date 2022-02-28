@@ -1,6 +1,7 @@
 package com.example.pachinui2
 
 
+import android.icu.text.CaseMap
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -17,9 +18,16 @@ fun CircularIndeterminateProgressBar(isDisplayed: Boolean){
             .background(Color.White)
             .padding(horizontal = 30.dp, vertical = 10.dp)
         ) {
-            Text(text = "Loading...")
-            Spacer(modifier = Modifier.padding(5.dp))
-            CircularProgressIndicator()
+
+            Text(text = "Please Wait..")
+            Spacer(modifier = Modifier.padding(10.dp))
+            Row() {
+                CircularProgressIndicator()
+                Spacer(modifier = Modifier.padding(10.dp))
+                Text(text = "Preparing to download ...")
+
+            }
+
         }
     }
 }
