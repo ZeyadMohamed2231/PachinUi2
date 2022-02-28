@@ -1,8 +1,7 @@
 package com.example.pachinui2
 
-import androidx.compose.foundation.BorderStroke
+
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.material.CircularProgressIndicator
@@ -15,24 +14,14 @@ import androidx.compose.ui.unit.dp
 fun CircularIndeterminateProgressBar(isDisplayed: Boolean){
     if(isDisplayed){
         Column(modifier = Modifier
-            .border(border = BorderStroke(1.dp, Color.Blue))
-            .background(Color.Blue)
-            .padding(20.dp)
+            .background(Color.White)
+            .padding(horizontal = 30.dp, vertical = 10.dp)
         ) {
-            Text(text = "Loading")
-
+            Text(text = "Loading...")
+            Spacer(modifier = Modifier.padding(5.dp))
             CircularProgressIndicator()
-
-            Text(text = "HII")
-
-
-
-
         }
-
     }
-
-
 }
 
 
