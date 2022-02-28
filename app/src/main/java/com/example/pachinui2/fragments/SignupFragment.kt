@@ -1,7 +1,5 @@
 package com.example.pachinui2.fragments
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.runtime.mutableStateOf
 import androidx.fragment.app.Fragment
-import com.example.pachinui2.MainActivity
+import androidx.compose.ui.platform.ComposeView
+import com.example.pachinui2.CircularIndeterminateProgressBar
+
 import com.example.pachinui2.R
-import com.example.pachinui2.fragments.VerficationFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +21,8 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
+
+
 
 
 private lateinit var auth: FirebaseAuth
@@ -32,24 +35,39 @@ var password : String?=""
 private val bundle = Bundle()
 private val verficationFragment = VerficationFragment()
 
+
 class SignupFragment : Fragment() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if (arguments != null) {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup, container, false)
+        var loading: Boolean = false
+
+
+
+
+
         val button = view.findViewById<Button>(R.id.bt_sign_up)
+
+
 
         //Tamer
         auth=FirebaseAuth.getInstance()
         button.setOnClickListener {
+
 
 
             val firstName = view.findViewById<EditText>(R.id.et_fname_signup).text.toString()
@@ -60,6 +78,9 @@ class SignupFragment : Fragment() {
 
 
             if(firstName.isEmpty()){
+
+
+
                 dialog(getString(R.string.error),getString(R.string.enter_first_name));
             }
             else if(lastName.isEmpty()){
@@ -74,7 +95,16 @@ class SignupFragment : Fragment() {
             else if(pcSignUp.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_pass_conf));
             }else{
-            sendVerificationCode("+2$number")
+
+
+
+                sendVerificationCode("+2$number")
+                view.findViewById<ComposeView>(R.id.compose_view).setContent {
+                    CircularIndeterminateProgressBar(isDisplayed = true)
+
+                }
+
+
             }
         }
 
@@ -93,6 +123,8 @@ class SignupFragment : Fragment() {
 
             // On code is sent by the firebase this method is called
             // in here we start a new activity where user can enter the OTP
+
+
             override fun onCodeSent(
                 verificationId: String,
                 token: PhoneAuthProvider.ForceResendingToken
@@ -109,6 +141,7 @@ class SignupFragment : Fragment() {
 
         return view
     }
+
     public fun sendVerificationCode(number: String) {
         val options = activity?.let {
             PhoneAuthOptions.newBuilder(auth)
@@ -126,12 +159,14 @@ class SignupFragment : Fragment() {
     }
 
 
+
     private fun showFragment(fragment: Fragment, bundle: Bundle) {
         fragment.setArguments(bundle)
         parentFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)
             .commit()
+
     }
     fun dialog(title: String?, message: String?) {
         MaterialAlertDialogBuilder(requireActivity())
@@ -139,4 +174,6 @@ class SignupFragment : Fragment() {
             .setMessage(message)
             .show()
     }
+
+
 }

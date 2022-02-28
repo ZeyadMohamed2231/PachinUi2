@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     public var activityMain = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(R.layout.activity_main)
         showFragment(SplashFragment())
         mTimerTask = object : TimerTask() {
