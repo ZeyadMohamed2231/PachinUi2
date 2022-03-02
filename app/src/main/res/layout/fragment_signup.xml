@@ -64,6 +64,7 @@
             android:inputType="number"
             />
         <EditText
+            app:passwordToggleEnabled="true"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
@@ -79,6 +80,7 @@
             android:inputType="textPassword"
             />
         <EditText
+            app:passwordToggleEnabled="true"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"

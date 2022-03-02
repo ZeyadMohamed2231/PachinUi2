@@ -41,5 +41,6 @@
     <string name="enter_pass_conf">أدخل تأكيد كلمة المرور الخاصة بك بشكل صحيح</string>
     <string name="enter_ver_code">أدخل رمز التحقق الخاص بك بشكل صحيح</string>
     <string name="enter_code">أدخل رمزك بشكل الصحيح</string>
+    <string name="loading">جاري تحميل </string>
 
 </resources>

@@ -72,13 +72,13 @@ class SignupFragment : Fragment() {
             else if(lastName.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_last_name));
             }
-            else if(number!!.isEmpty()){
+            else if(number!!.isEmpty().or((number!!.length<6).or(number!!.length>11) )){
                 dialog(getString(R.string.error),getString(R.string.enter_phone_number_correct));
             }
-            else if(password!!.isEmpty()){
+            else if(password!!.isEmpty().or((password!!.length<6).or(password!!.length>16) )){
                 dialog(getString(R.string.error),getString(R.string.enter_password_correct));
             }
-            else if(pcSignUp.isEmpty()){
+            else if(pcSignUp.isEmpty().or((pcSignUp!= password))){
                 dialog(getString(R.string.error),getString(R.string.enter_pass_conf));
             }else{
                 sendVerificationCode("+2$number")

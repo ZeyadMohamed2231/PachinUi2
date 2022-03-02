@@ -32,11 +32,11 @@ class ForgetPassFragment : Fragment() {
             val newPasswordFP = view.findViewById<EditText>(R.id.et_password_fp).text.toString()
             val passConfFP = view.findViewById<EditText>(R.id.et_password_conf_fp).text.toString()
 
-            if(phoneNumberFP.isEmpty()){
+            if(phoneNumberFP.isEmpty().or((phoneNumberFP.length<6).or(phoneNumberFP.length>11) )){
                 dialog(getString(R.string.error),getString(R.string.enter_phone_number_correct))
-            }else if(newPasswordFP.isEmpty()){
+            }else if(newPasswordFP.isEmpty().or((newPasswordFP.length<6).or(newPasswordFP.length>16) )){
                 dialog(getString(R.string.error),getString(R.string.enter_password_correct))
-            }else if(passConfFP.isEmpty()){
+            }else if(passConfFP.isEmpty().or((newPasswordFP!= passConfFP))){
                 dialog(getString(R.string.error),getString(R.string.enter_pass_conf))
             }else{
             showFragment(VerficationFragment())

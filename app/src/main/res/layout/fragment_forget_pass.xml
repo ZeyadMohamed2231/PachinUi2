@@ -33,6 +33,7 @@
             android:gravity="center"
             />
         <EditText
+            android:inputType="textPassword"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
@@ -42,11 +43,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/et_style"
             android:hint="@string/new_password"
+            app:passwordToggleEnabled="true"
             android:textColorHint="@color/white"
             android:padding="10dp"
             android:gravity="center"
             />
         <EditText
+            app:passwordToggleEnabled="true"
+            android:inputType="textPassword"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"

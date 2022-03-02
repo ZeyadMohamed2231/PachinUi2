@@ -45,10 +45,10 @@ class LoginFragment : Fragment() {
             val et_password = view.findViewById<EditText>(R.id.et_password).text.toString()
 
 
-            if(et_phone_number.isEmpty().or(et_phone_number.length < 11)){
+            if(et_phone_number.isEmpty().or((et_phone_number.length<6).or(et_phone_number.length>11) )){
                 dialog(getString(R.string.error),getString(R.string.enter_phone_number_correct))
             }
-            else if(et_password.isEmpty().or((8>et_password.length).and(et_password.length<16))){
+            else if(et_password.isEmpty().or((et_password.length<6).or(et_password.length>16) )){
                 dialog(getString(R.string.error),getString(R.string.enter_password_correct))
             }else{
                 view.findViewById<ComposeView>(R.id.compose_view_login).setContent {
