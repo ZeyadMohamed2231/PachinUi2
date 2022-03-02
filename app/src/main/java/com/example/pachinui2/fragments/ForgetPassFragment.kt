@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.pachinui2.CircularIndeterminateProgressBar
 import com.example.pachinui2.R
 import com.example.pachinui2.fragments.VerficationFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

@@ -38,14 +38,12 @@ private val verficationFragment = VerficationFragment()
 
 class SignupFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         if (arguments != null) {
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,19 +54,11 @@ class SignupFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_signup, container, false)
         var loading: Boolean = false
 
-
-
-
-
         val button = view.findViewById<Button>(R.id.bt_sign_up)
-
-
 
         //Tamer
         auth=FirebaseAuth.getInstance()
         button.setOnClickListener {
-
-
 
             val firstName = view.findViewById<EditText>(R.id.et_fname_signup).text.toString()
             val lastName = view.findViewById<EditText>(R.id.et_lname_signup).text.toString()
@@ -76,11 +66,7 @@ class SignupFragment : Fragment() {
             password = view.findViewById<EditText>(R.id.et_password_signup).text.toString()
             val pcSignUp = view.findViewById<EditText>(R.id.et_password_conf_signup).text.toString()
 
-
             if(firstName.isEmpty()){
-
-
-
                 dialog(getString(R.string.error),getString(R.string.enter_first_name));
             }
             else if(lastName.isEmpty()){
@@ -95,16 +81,10 @@ class SignupFragment : Fragment() {
             else if(pcSignUp.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_pass_conf));
             }else{
-
-
-
                 sendVerificationCode("+2$number")
                 view.findViewById<ComposeView>(R.id.compose_view).setContent {
                     CircularIndeterminateProgressBar(isDisplayed = true)
-
                 }
-
-
             }
         }
 

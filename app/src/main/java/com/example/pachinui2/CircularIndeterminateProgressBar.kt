@@ -14,20 +14,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CircularIndeterminateProgressBar(isDisplayed: Boolean){
     if(isDisplayed){
-        Column(modifier = Modifier
+        Row(modifier = Modifier
             .background(Color.White)
             .padding(horizontal = 30.dp, vertical = 10.dp)
         ) {
-
-            Text(text = "Please Wait..")
-            Spacer(modifier = Modifier.padding(10.dp))
-            Row() {
-                CircularProgressIndicator()
-                Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Preparing to download ...")
-
-            }
-
+            CircularProgressIndicator()
+            Spacer(modifier = Modifier.padding(20.dp))
+            Text(text = "Loading ...", modifier = Modifier.padding(vertical = 10.dp))
         }
     }
 }

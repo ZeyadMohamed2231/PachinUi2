@@ -11,7 +11,9 @@ import android.content.Intent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.pachinui2.CircularIndeterminateProgressBar
 import com.example.pachinui2.SecondScreen
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -21,6 +23,7 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
+
         }
     }
 
@@ -31,11 +34,6 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
 
-
-
-
-
-
         val tv_signup = view.findViewById<TextView>(R.id.tv_signup)
         tv_signup.setOnClickListener { showFragment(SignupFragment()) }
         val tv_forget_pass = view.findViewById<TextView>(R.id.tv_fp)
@@ -43,18 +41,19 @@ class LoginFragment : Fragment() {
         val button_signup = view.findViewById<Button>(R.id.bt_sign_in)
         button_signup.setOnClickListener {
 
-
             val et_phone_number = view.findViewById<EditText>(R.id.et_phone_number).text.toString()
             val et_password = view.findViewById<EditText>(R.id.et_password).text.toString()
 
 
-
-            if(et_phone_number.isEmpty()){
+            if(et_phone_number.isEmpty().or(et_phone_number.length < 11)){
                 dialog(getString(R.string.error),getString(R.string.enter_phone_number_correct))
             }
-            else if(et_password.isEmpty()){
+            else if(et_password.isEmpty().or((8>et_password.length).and(et_password.length<16))){
                 dialog(getString(R.string.error),getString(R.string.enter_password_correct))
             }else{
+                view.findViewById<ComposeView>(R.id.compose_view_login).setContent {
+                    CircularIndeterminateProgressBar(isDisplayed = true)
+                }
             val intent = Intent(activity, SecondScreen::class.java)
             startActivity(intent)
             activity?.finish()

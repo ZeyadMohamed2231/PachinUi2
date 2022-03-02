@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.pachinui2.CircularIndeterminateProgressBar
 import com.example.pachinui2.R
 import com.example.pachinui2.fragments.LoginFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -54,6 +56,10 @@ class VerficationFragment : Fragment() {
                 dialog(getString(R.string.error),getString(R.string.enter_ver_code))
             }else{
 
+
+                view.findViewById<ComposeView>(R.id.compose_view_verification).setContent {
+                    CircularIndeterminateProgressBar(isDisplayed = true)
+                }
 
             val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
                 storedVerificationId.toString(), verCodeEt!!

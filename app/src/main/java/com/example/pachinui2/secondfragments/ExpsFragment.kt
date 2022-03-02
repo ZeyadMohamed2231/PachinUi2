@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.pachinui2.CircularIndeterminateProgressBar
 import com.example.pachinui2.R
 import com.example.pachinui2.SecondScreen
 import com.example.pachinui2.secondfragments.ScoreFragment
@@ -34,6 +36,9 @@ class ExpsFragment : Fragment() {
                 dialog(getString(R.string.error),getString(R.string.enter_code))
             }
             else{
+                view.findViewById<ComposeView>(R.id.compose_view_exps).setContent {
+                    CircularIndeterminateProgressBar(isDisplayed = true)
+                }
             activity?.finish()
             val intent = Intent(activity, SecondScreen::class.java)
             startActivity(intent)
