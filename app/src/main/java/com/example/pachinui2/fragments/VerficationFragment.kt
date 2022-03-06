@@ -12,13 +12,11 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.example.pachinui2.CircularIndeterminateProgressBar
 import com.example.pachinui2.R
-import com.example.pachinui2.fragments.LoginFragment
+import com.example.pachinui2.backend.FirebaseConn.domain
+import com.example.pachinui2.backend.FirebaseConn.firebaseAuth
+import com.example.pachinui2.backend.FirebaseConn.writeNewUser
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
-
+import com.google.firebase.auth.*
 
 
 // create instance of firebase auth
@@ -26,6 +24,9 @@ private lateinit var auth: FirebaseAuth
 var userPassword:String?=""
 var phoneNumber:String?=""
 var verCodeEt:String?=""
+private var firstName:String?=""
+private var lastName:String?=""
+
 class VerficationFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,8 @@ class VerficationFragment : Fragment() {
             val storedVerificationId = bundle.getString("verificationId")
             userPassword= bundle.getString("password")
             phoneNumber= bundle.getString("phoneNumber")
+            firstName= bundle.getString("firstName")
+            lastName= bundle.getString("lastName")
         }
 
         button.setOnClickListener {
@@ -55,8 +58,6 @@ class VerficationFragment : Fragment() {
             if(verCodeEt!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_ver_code))
             }else{
-
-
                 view.findViewById<ComposeView>(R.id.compose_view_verification).setContent {
                     CircularIndeterminateProgressBar(isDisplayed = true)
                 }
@@ -73,28 +74,32 @@ class VerficationFragment : Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    showFragment(LoginFragment())
+                    signUpEmail(phoneNumber, password, firstName , lastName )
                 } else {
-                    Log.d("error","task failed")
+                    Log.d("display","Something went wrong please try again and make sure you are connected to the internet")
                     // Sign in failed, display a message and update the UI(can be for internet or something else)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
-                        Log.d("invalid","invalid code")
+                        Log.d("display","Please enter the correct code")
                     }
                 }
             }
     }
 
-    private fun signUpEmail(auth: FirebaseAuth,userPhone:String?,userPassword:String?) {
+    private fun signUpEmail(userPhone:String?,userPassword:String?,firstName:String?,lastName:String?) {
 
-        if (userPhone != null && userPassword != null) {
-            auth.createUserWithEmailAndPassword(userPhone, userPassword)
+        if (userPhone != null && userPassword != null && firstName!=null && lastName !=null) {
+            firebaseAuth.createUserWithEmailAndPassword(userPhone+domain, userPassword)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
-                        Log.d("Email","created account successfully !")
+                        Log.d("display","created account successfully !")
+                        writeNewUser(userPhone, firstName, lastName,0)
                         showFragment(LoginFragment())
                     } else {
-                        Log.d("Email","failed to create email, something went wrong(probably internet)")
+                        Log.d("Email", task.exception.toString())
+                        if (task.exception is FirebaseAuthUserCollisionException) {
+                            Log.d("display", "The phone number is already in use by another account.")
+                        }
                     }
                 }
         }else{

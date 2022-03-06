@@ -32,6 +32,8 @@ private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 var number : String?=""
 var password : String?=""
+private var firstName: String?=""
+private var lastName: String?=""
 private val bundle = Bundle()
 private val verficationFragment = VerficationFragment()
 
@@ -60,16 +62,16 @@ class SignupFragment : Fragment() {
         auth=FirebaseAuth.getInstance()
         button.setOnClickListener {
 
-            val firstName = view.findViewById<EditText>(R.id.et_fname_signup).text.toString()
-            val lastName = view.findViewById<EditText>(R.id.et_lname_signup).text.toString()
+            firstName = view.findViewById<EditText>(R.id.et_fname_signup).text.toString()
+            lastName = view.findViewById<EditText>(R.id.et_lname_signup).text.toString()
             number= view.findViewById<EditText>(R.id.et_phone_signup).text.toString()
             password = view.findViewById<EditText>(R.id.et_password_signup).text.toString()
             val pcSignUp = view.findViewById<EditText>(R.id.et_password_conf_signup).text.toString()
 
-            if(firstName.isEmpty()){
+            if(firstName!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_first_name));
             }
-            else if(lastName.isEmpty()){
+            else if(lastName!!.isEmpty()){
                 dialog(getString(R.string.error),getString(R.string.enter_last_name));
             }
             else if(number!!.isEmpty().or((number!!.length<6).or(number!!.length>11) )){
@@ -92,13 +94,14 @@ class SignupFragment : Fragment() {
 
             // This method is called when the verification is completed
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-
+                //don't display anything
                 Log.d("GFG" , "onVerificationCompleted Success")
             }
 
             // Called when verification is failed add log statement to see the exception
             override fun onVerificationFailed(e: FirebaseException) {
                 Log.d("GFG" , "onVerificationFailed  $e")
+                //display network timeout or something went wrong error
             }
 
             // On code is sent by the firebase this method is called
@@ -115,6 +118,8 @@ class SignupFragment : Fragment() {
                 bundle.putString("verificationId", storedVerificationId)
                 bundle.putString("password", password)
                 bundle.putString("phoneNumber", number)
+                bundle.putString("firstName",firstName)
+                bundle.putString("lastName", lastName)
                 showFragment(VerficationFragment(), bundle)
             }
         }
@@ -122,7 +127,7 @@ class SignupFragment : Fragment() {
         return view
     }
 
-    public fun sendVerificationCode(number: String) {
+    private fun sendVerificationCode(number: String) {
         val options = activity?.let {
             PhoneAuthOptions.newBuilder(auth)
                 .setPhoneNumber(number) // Phone number to verify
